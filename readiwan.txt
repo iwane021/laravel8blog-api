@@ -184,3 +184,48 @@ url: http://laravel8blog-api.test/api/blogs/{id}
 
 method: DELETE
 
+
+---------------------------------------------
+Using Laravel pest for unit testing
+---------------------------------------------
+Doc : 
+- https://pestphp.com/docs/plugins/laravel
+- https://laravel.com/docs/8.x/testing
+
+1. Create test with command :
+php artisan make:test User/ListUserTest
+
+#By default, tests will be placed in the tests/Feature directory
+then you can see a file created in directory Feature/User/[filename]
+
+#If you would like to create a test within the tests/Unit directory, you may use the --unit option when executing the make:test command
+php artisan make:test User/ListUserTest --unit
+
+#If you would like to create a Pest PHP test, you may provide the --pest option to the make:test command
+php artisan pest:test User/ListUserTest
+or
+php artisan pest:test User/ListUserTest --unit
+or
+php artisan make:test User/ListUserTest --pest
+or
+php artisan make:test User/ListUserTest --unit --pest
+
+
+2. Running test with command below :
+php artisan test [file_path_test]
+or
+./vendor/bin/pest
+./vendor/bin/phpunit
+
+3. Testing unit test with this case :
+a. Get List User
+./vendor/bin/pest tests/Feature/User/ListUserTest.php 
+
+b. Create User
+./vendor/bin/pest tests/Feature/User/CreateUserTest.php 
+
+c. Update User
+./vendor/bin/pest tests/Feature/User/UpdateUserTest.php
+
+d. Delete User
+./vendor/bin/pest tests/Feature/User/DeleteUserTest.php 
