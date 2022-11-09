@@ -229,3 +229,13 @@ c. Update User
 
 d. Delete User
 ./vendor/bin/pest tests/Feature/User/DeleteUserTest.php 
+
+Disable osxkeychain MacOS :
+file: /usr/local/etc/gitconfig   osxkeychain
+
+in each of the config files, comment out osxkeychain, as featured below:
+[credential]
+   helper = osxkeychain
+should become
+#[credential]
+#  helper = osxkeychain
