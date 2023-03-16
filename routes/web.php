@@ -18,3 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('user', UserController::class);
+Route::get('images/product/{image}', function($image = null)
+{
+    // dd(Storage::get('public/dokumen4.jpeg'));
+    $file = Storage::get('public/' . $image);
+    $mimetype = Storage::mimeType('public/' . $image);
+    return response($file, 200)->header('Content-Type', $mimetype);
+});
